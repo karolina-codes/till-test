@@ -21,6 +21,16 @@ class Till {
       }
     }
   }
+
+  totalPrice() {
+    const quantityAndPrices = Object.values(this.items);
+
+    for (const quantityandPrice of quantityAndPrices) {
+      this.total += quantityandPrice[0] * quantityandPrice[1];
+    }
+
+    return this.total;
+  }
 }
 
 module.exports = Till;
