@@ -10,13 +10,13 @@ describe('Till', () => {
     const till = new Till();
 
     it('returns items in till', () => {
-      expect(till.getItems()).toEqual([]);
+      expect(till.getItems()).toEqual({});
     });
 
     it('adds an item to the list', () => {
       till.addItems('Flat White');
 
-      expect(till.items).toEqual(['Flat White']);
+      expect(till.items).toEqual({ 'Flat White': [1, 4.75] });
     });
   });
 
@@ -25,7 +25,11 @@ describe('Till', () => {
 
     it('adds 3 items to the list', () => {
       till.addItems('Affogato', 'Tiramisu', 'Cappucino');
-      expect(till.getItems()).toEqual(['Affogato', 'Tiramisu', 'Cappucino']);
+      expect(till.getItems()).toEqual({
+        Affogato: [1, 14.8],
+        Cappucino: [1, 3.85],
+        Tiramisu: [1, 11.4],
+      });
     });
   });
 });

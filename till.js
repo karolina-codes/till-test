@@ -2,11 +2,10 @@ const hipsterCoffee = require('./hipstercoffee.json')[0];
 
 class Till {
   constructor() {
-    this.items = [];
+    this.items = {};
     this.total = 0;
     this.shopInfo = hipsterCoffee;
     this.prices = this.shopInfo.prices[0];
-    this.test = this.prices['Cafe Latte'];
   }
 
   getItems() {
@@ -15,7 +14,11 @@ class Till {
 
   addItems(...items) {
     for (const item of items) {
-      this.items.push(item);
+      if (this.items.hasOwnProperty(item)) {
+        this.items[item][0] += 1;
+      } else {
+        this.items[item] = [1, this.prices[item]];
+      }
     }
   }
 }
