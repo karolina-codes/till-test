@@ -13,8 +13,10 @@ class Till {
     return this.items;
   }
 
-  addItem(item) {
-    this.items.push(item);
+  addItems(...items) {
+    for (const item of items) {
+      this.items.push(item);
+    }
   }
 }
 
