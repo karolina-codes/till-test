@@ -14,9 +14,18 @@ describe('Till', () => {
     });
 
     it('adds an item to the list', () => {
-      till.addItem('Flat White');
+      till.addItems('Flat White');
 
       expect(till.items).toEqual(['Flat White']);
+    });
+  });
+
+  describe('adds multiple items to the till in one go', () => {
+    const till = new Till();
+
+    it('adds 3 items to the list', () => {
+      till.addItems('Affogato', 'Tiramisu', 'Cappucino');
+      expect(till.getItems()).toEqual(['Affogato', 'Tiramisu', 'Cappucino']);
     });
   });
 });
